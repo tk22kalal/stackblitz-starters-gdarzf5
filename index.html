@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MBBS Quiz</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <div id="setup-container" class="setup-container">
+        <h1>MBBS Quiz Setup</h1>
+        <div class="setup-form">
+            <div class="form-group">
+                <label for="subject-select">Select Subject:</label>
+                <select id="subject-select" required>
+                    <option value="">Choose a subject...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subtopic-select">Select Sub-topic:</label>
+                <select id="subtopic-select" required disabled>
+                    <option value="">Choose a sub-topic...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="difficulty-select">Select Difficulty:</label>
+                <select id="difficulty-select" required>
+                    <option value="">Choose difficulty level...</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+                <div id="difficulty-info" class="difficulty-info"></div>
+            </div>
+            <div class="form-group">
+                <label for="questions-select">Number of Questions:</label>
+                <select id="questions-select" required>
+                    <option value="0">No limit</option>
+                    <option value="10">10 questions</option>
+                    <option value="30">30 questions</option>
+                    <option value="60">60 questions</option>
+                    <option value="90">90 questions</option>
+                    <option value="120">120 questions</option>
+                    <option value="180">180 questions</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="time-select">Time per Question:</label>
+                <select id="time-select" required>
+                    <option value="0">No time limit</option>
+                    <option value="40">40 seconds</option>
+                    <option value="60">60 seconds</option>
+                </select>
+            </div>
+            <button id="start-quiz-btn">Start Quiz</button>
+        </div>
+    </div>
+
+    <div id="quiz-container" class="quiz-container hidden">
+        <h1>MBBS Quiz</h1>
+        <div class="quiz-stats">
+            <div id="timer" class="timer"></div>
+            <div id="progress" class="progress">Question: <span id="current-question">1</span>/<span id="total-questions">∞</span></div>
+        </div>
+        <div id="loader" class="hidden">Loading...</div>
+        <div id="quiz-content">
+            <div id="question-container">
+                <div id="image-type" class="image-type hidden"></div>
+                <div id="image-container" class="image-container hidden">
+                    <img id="question-image" class="question-image hidden" alt="Medical Image">
+                </div>
+                <div id="image-description" class="image-description hidden"></div>
+                <p id="question-text"></p>
+            </div>
+            <div id="options-container"></div>
+        </div>
+        <div id="score-container" class="hidden">
+            <h2>Quiz Complete!</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3>Total Questions</h3>
+                    <p id="total-attempted">0</p>
+                </div>
+                <div class="result-card correct">
+                    <h3>Correct Answers</h3>
+                    <p id="correct-answers">0</p>
+                </div>
+                <div class="result-card wrong">
+                    <h3>Wrong Answers</h3>
+                    <p id="wrong-answers">0</p>
+                </div>
+                <div class="result-card percentage">
+                    <h3>Score Percentage</h3>
+                    <p id="score-percentage">0%</p>
+                </div>
+            </div>
+            <button id="restart-btn">New Quiz</button>
+        </div>
+    </div>
+    <div id="next-button-container" class="next-button-container hidden">
+        <button id="next-btn">Next Question</button>
+    </div>
+</body>
+</html>
